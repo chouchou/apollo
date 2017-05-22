@@ -1,5 +1,5 @@
 
-function [fe_addition ]=elem_cond(ex, ey, t, P,node_not_on_boundary)
+function [fe_addition ]=neumann(ex, ey, t, P,node_not_on_boundary)
 %
 % [fe_addition]=elem_cond(ex,ey,ep,alpha,T_inf,node_not_on_boundary)
 %-------------------------------------------------------------

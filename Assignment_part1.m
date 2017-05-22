@@ -17,7 +17,7 @@ nen = size(elem(1).cn,2);
 fig= figure;
 % plot mesh, element numbers and node number
 eldraw2(ex,ey,[1,2,1])
-
+keyboard
 %%
 % introduce the needed material parameters
 
@@ -83,6 +83,9 @@ for e = 1:nel
     %%
     
     %Counters to see how many nodes are on each boundary
+    %The first index will show how many nodes are on the boundary and the
+    %other (in this case two) indices wil show what nodes are on the
+    %boundary.
     nAB = zeros(1,nen);
     nBC = zeros(1,nen);
     nCD = zeros(1,nen);
@@ -107,7 +110,7 @@ for e = 1:nel
             %care if 2 nodes are on the boundary
             nAB(1)=nAB(1)+1;
             
-            %THis is to be able to pick out which of the 2 nodes are on the
+            %This is to be able to pick out which of the 2 nodes are on the
             %boundary since the calculations look slightly different
             %depending on which node is not on the boundary
             if(nAB(2)==0)
@@ -204,6 +207,7 @@ for e = 1:nel
     C=assem(edof(e,:),C,Ce);
     %keyboard
 end
+%keyboard
 %End of element loop
 clear Ce Ke Ke_addition fe fe_addition k c t ep eq
 
@@ -232,7 +236,7 @@ step = 0;
 % h.Label.String='Temperature in centigrade';
 % title('Temperature distribution for the steady state solution')
 % caxis([-50 500]);
-% keyboard
+ keyboard
 
 K=K+C/dt;
 

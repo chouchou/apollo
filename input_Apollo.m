@@ -15,7 +15,7 @@ ndof = nnp*ndf;
 
 conn = dlmread('Apollo.conn'); % 1st colum containes element number
 conn = conn(:,2:end);          % remove 1st column
-
+%keyboard
 [nel,nen] = size(conn);
 
 % allocate memory for the element structure 
@@ -42,6 +42,8 @@ ey = zeros(nel, nen);
 %keyboard 
 nodedof = zeros(nnp,ndf+1);
 
+%Construct a matrix similar to edof but containing the dofs for all the
+%nodes
 for n=1:nnp
     nodedof(n,1) = n;
     nodedof(n,2:end) = [n*ndf-(ndf-1):n*ndf];
@@ -62,6 +64,6 @@ for e = 1:nel
     ex(e,:) = x(elem(e).cn, 1);
     ey(e,:) = x(elem(e).cn, 2);
 end
-
+%keyboard
 clear ndf e ndf ndm nsv
 

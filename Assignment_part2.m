@@ -53,6 +53,7 @@ Y=[0 pmax 0];
 X=linspace(min([min(ex(:,1)) min(ex(:,2)) min(ex(:,3))]), max([max(ex(:,1)) max(ex(:,2)) max(ex(:,3))]),3);
 P=polyfit(X,Y,2);
 
+%keyboard
 clear Y X
 
 %Body force, gravity acting ne;gative in the y-dir
@@ -145,7 +146,7 @@ clear Ke Ke_addition fe fe_addition nu E t eq
 %Set Dirichelet BC
 bc = vertcat([nodedof(NodesCD(:),3),zeros(size(NodesCD,2),1)],[nodedof(2,2),0]);
 
-clear NodesAB NodesBC NodesCD NodesDA NodesTubes
+%clear NodesAB NodesBC NodesCD NodesDA NodesTubes
 
 %keyboard
 
@@ -195,4 +196,4 @@ h.Label.String='Von mises stress (Pa)';
 title('Von Mises Stress distribution');
 
 %Saving of the image
-% saveas(fig,strcat('Time_',int2str(time),'_timestep',int2str(dt),'_step',int2str(step)),'png')
+ saveas(fig,strcat('Von_mise_distr','.png'))
